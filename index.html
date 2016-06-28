@@ -45,8 +45,8 @@ permalink: /
 								{{ post.url | replace:'/','-' | replace_first:'-','/' | replace_first:'.html','.jpg' }}
 							{% endcapture %}
 							<article>
-							<a class="thumbnail" href="images/fulls/2016-06-28-test-pic.jpg" data-position="left center">
-								<img src="images/thumbs/2016-06-28-test-pic.jpg" alt="" />
+							<a class="thumbnail" href="images/fulls{{ url }}" data-position="left center">
+								<img src="images/thumbs{{ url }}" alt="" />
 							</a>
 							<p>{{ url }}</p>
 							{{ post.content }}
