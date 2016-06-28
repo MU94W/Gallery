@@ -44,19 +44,10 @@ permalink: /
 							{% capture url %}
 								{{ post.url | replace:'/','-' | replace_first:'-','/' | replace_first:'.html','.jpg' }}
 							{% endcapture %}
-							{% capture full_url %}
-								{{ url | prepend:'images/fulls' }}
-							{% endcapture %}
-							{% capture thumb_url %}
-								{{ url | prepend:'images/thumbs' }}
-							{% endcapture %}
 							<article>
-							<a class="thumbnail" href="images/fulls{{ url }}" data-position="left center">
-								<img src="images/thumbs{{ url }}" alt="" />
+							<a class="thumbnail" href="images/fulls/2016-06-28-test-pic.jpg" data-position="left center">
+								<img src="images/thumbs/2016-06-28-test-pic.jpg" alt="" />
 							</a>
-							<p> {{ post.url }} </p>
-							<p> {{ full_url }} </p>
-							<p> {{ thumb_url }} </p>
 							{{ post.content }}
 							</article>
 						{% endfor %}
