@@ -34,6 +34,24 @@
 
 				<!-- Thumbnail -->
 					<section id="thumbnails">
+						{% for post in site.posts %}
+							{% capture url %}
+								{{ post.url | replace_first:'.md','.jpg' }}
+							{% endcapture %}
+							{% capture full_url %}
+								{{ url | replace_first:'_posts','images/fulls' }}
+							{% endcapture %}
+							{% capture thumb_url %}
+								{{ url | replace_first:'_posts','images/thumbs' }}
+							{% endcapture %}
+							<article>
+							<a class="thumbnail" href={{ full_url }} data-position="left center">
+								<img src={{ thumb_url }} alt="" />
+							</a>
+							{{ post.content }}
+							</article>
+						{% endfor %}
+						<!--
 						<article>
 							<a class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a>
 							<h2>Diam tempus accumsan</h2>
@@ -94,6 +112,7 @@
 							<h2>Mattis lorem sodales</h2>
 							<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
 						</article>
+						-->
 					</section>
 
 				<!-- Footer -->
