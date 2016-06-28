@@ -42,13 +42,13 @@ permalink: /
 					<section id="thumbnails">
 						{% for post in site.posts %}
 							{% capture url %}
-								{{ post.url | replace:'/','-' | replace_first:'-','/' | replace_first:'.html','.jpg' }}
+								{{ post.url | replace_first:'.html','.jpg' }}
 							{% endcapture %}
 							<article>
 							<a class="thumbnail" href="images/fulls{{ url }}" data-position="left center">
 								<img src="images/thumbs{{ url }}" alt="" />
 							</a>
-							<p>{{ post.url }}</p>
+							<p>{{ url }}</p>
 							{{ post.content }}
 							</article>
 						{% endfor %}
