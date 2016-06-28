@@ -42,17 +42,17 @@ permalink: /
 					<section id="thumbnails">
 						{% for post in site.posts %}
 							{% capture url %}
-								{{ post.url | replace_first:'.md','.jpg' }}
+								{{ post.url | replace:'/','-' | replace_first:'-','/' | replace_first:'.html','.jpg' }}
 							{% endcapture %}
 							{% capture full_url %}
-								{{ url | replace_first:'_posts','images/fulls' }}
+								{{ url | prepend:'images/fulls' }}
 							{% endcapture %}
 							{% capture thumb_url %}
-								{{ url | replace_first:'_posts','images/thumbs' }}
+								{{ url | prepend:'images/thumbs' }}
 							{% endcapture %}
 							<article>
-							<a class="thumbnail" href={{ full_url }} data-position="left center">
-								<img src={{ thumb_url }} alt="" />
+							<a class="thumbnail" href="{{ full_url }}" data-position="left center">
+								<img src="{{ thumb_url }}" alt="" />
 							</a>
 							<p> {{ post.url }} </p>
 							<p> {{ full_url }} </p>
