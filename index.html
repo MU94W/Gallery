@@ -51,8 +51,8 @@ permalink: /
 								{{ url | prepend:'images/thumbs' }}
 							{% endcapture %}
 							<article>
-							<a class="thumbnail" href="images/fulls/{{ url }}" data-position="left center">
-								<img src="images/thumbs/{{ url }}" alt="" />
+							<a class="thumbnail" href="images/fulls{{ url }}" data-position="left center">
+								<img src="images/thumbs{{ url }}" alt="" />
 							</a>
 							<p> {{ post.url }} </p>
 							<p> {{ full_url }} </p>
