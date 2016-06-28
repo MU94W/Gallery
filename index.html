@@ -41,15 +41,14 @@ permalink: /
 				<!-- Thumbnail -->
 					<section id="thumbnails">
 						{% for post in site.posts %}
-							{% capture url %}
-								{{ post.url | replace:'.html','.jpg' }}
-							{% endcapture %}
+							{% capture url %}{{ post.url | replace:'/','-' | replace_first:'-','/' | replace_first:'.html','.jpg' }}{% endcapture %}
+							{% capture full_url %}images/fulls{{ url }}{% endcapture %}
+							{% capture thumb_url %}images/thumbs{{ url }}{% endcapture %}
 							<article>
-							<a class="thumbnail" href="images/fulls{{ url }}" data-position="left center">
-								<img src="images/thumbs{{ url }}" alt="" />
+							<a class="thumbnail" href="{{ full_url }}" data-position="left center">
+								<img src="{{ thumb_url }}" alt="" />
 							</a>
-							<p>test</p>
-							<p>{{ url }}</p>
+							<p>{{ post.url }}</p>
 							{{ post.content }}
 							</article>
 						{% endfor %}
